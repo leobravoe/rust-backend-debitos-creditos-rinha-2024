@@ -10,7 +10,7 @@
 services:                       # Raiz que agrupa todos os serviços (cada serviço é um container com propósito próprio).
 
   postgres:                     # Serviço de banco de dados PostgreSQL; armazena dados da aplicação.
-    image: postgres:15-alpine   # Imagem base do Postgres (versão 15) sobre Alpine Linux (leve, inicializa rápido).
+    image: postgres:15.15-alpine3.22   # Imagem base do Postgres (versão 15.15 sobre Alpine 3.22), leve e rápida para inicializar.
     container_name: postgres    # Nome fixo do container; facilita achar logs ou executar comandos direcionados.
     restart: always             # Política de reinício automática: se o container parar/crashar, o Docker tenta subir novamente.
 
@@ -124,7 +124,7 @@ services:                       # Raiz que agrupa todos os serviços (cada servi
     restart: always             # Política de reinício automática: se o container parar/crashar, o Docker tenta subir novamente.
 
   nginx:                        # Serviço de proxy reverso (porta de entrada do sistema para o “mundo externo”).
-    image: nginx:alpine         # Imagem Nginx leve baseada em Alpine; inicia rápido e consome poucos recursos.
+    image: nginx:1.29.3-alpine3.22    # Imagem Nginx (versão 1.29.3 sobre Alpine 3.22), leve e adequada como proxy reverso.
     container_name: nginx       # Nome fixo do container do Nginx.
 
     ports:                      # Mapeamento de porta do host para o Nginx.
